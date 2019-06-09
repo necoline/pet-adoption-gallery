@@ -1,15 +1,15 @@
 snippets.onLoad(function() {
-  // function loadJSON(callback) {
-  //   var xobj = new XMLHttpRequest();
-  //   xobj.overrideMimeType("application/json");
-  //   xobj.open("GET", "./assets/data/dogs.json", true);
-  //   xobj.onreadystatechange = function() {
-  //     if (xobj.readyState == 4 && xobj.status == "200") {
-  //       callback(xobj.responseText);
-  //     }
-  //   };
-  //   xobj.send(null);
-  // }
+  function loadJSON(callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open("GET", "./assets/data/dogs.json", true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        callback(xobj.responseText);
+      }
+    };
+    xobj.send(null);
+  }
 
   const internalFetch = (url, options = { method: "get" }) =>
     new Promise((resolve, reject) => {
@@ -72,7 +72,7 @@ function openModal(event) {
   const imgSrc = event.target.getAttribute("data-lazy");
   // Displays modal
   document.getElementById("site-content__modal").style.display = "block";
-  // Sets the image address
+  // Sets the image to the source
   document
     .getElementById("site-content__modal-img")
     .setAttribute("src", imgSrc);
