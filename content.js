@@ -14,6 +14,7 @@ snippets.onLoad(function() {
   fetchData("./assets/data/dogs.json")
     .then(function(response) {
       // Parses json data
+      debugger;
       const dogData = JSON.parse(response.target.response);
       return dogData.dogs;
     })
