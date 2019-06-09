@@ -11,10 +11,12 @@ snippets.onLoad(function() {
 
   internalFetch("./assets/data/dogs.json")
     .then(function(response) {
+      // Parses json data
       const dogData = JSON.parse(response.target.response);
       return dogData.dogs;
     })
     .then(function(jsonData) {
+      // Calls function to create HTML code
       createImages(jsonData);
     })
     .catch(err => {
@@ -44,7 +46,6 @@ snippets.onLoad(function() {
         if (entry.isIntersecting) {
           const img = entry.target;
           const src = img.getAttribute("data-lazy");
-
           img.setAttribute("src", src);
           img.classList.add("site-content__fadeIn");
 
