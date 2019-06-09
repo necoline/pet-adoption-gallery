@@ -38,7 +38,8 @@ snippets.onLoad(function() {
     for (let i of imgs) {
       const image = document.createElement("img");
       image.setAttribute("data-lazy", i.image);
-      image.setAttribute("onclick", openModal());
+      // image.setAttribute("onclick", openImage();currentImage(image));
+      image.setAttribute("alt", "dog image");
       image.classList.add("lazy-loading");
       document.getElementById("site-content__container").appendChild(image);
     }
@@ -47,7 +48,7 @@ snippets.onLoad(function() {
     lazyTargets.forEach(lazyLoad);
   }
 
-  // The lazy load observer
+  // Sets and disconnects lazy load observer
   function lazyLoad(target) {
     const obs = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -67,5 +68,45 @@ snippets.onLoad(function() {
 });
 
 function openModal() {
-  console.log("modal");
+  document.getElementById("site-content__modal").style.display = "block";
 }
+
+function closeModal() {
+  document.getElementById("site-content__modal").style.display = "none";
+}
+
+// var btn = document.getElementById("site-content__modal-opener");
+// var modal = document.querySelector(".site-content__modal");
+
+// function attachModalListeners(modalElm) {
+//   modalElm
+//     .querySelector(".site-content__close-modal")
+//     .addEventListener("click", toggleModal);
+//   modalElm
+//     .querySelector(".site-content__overlay")
+//     .addEventListener("click", toggleModal);
+// }
+
+// function detachModalListeners(modalElm) {
+//   modalElm
+//     .querySelector(".site-content__close-modal")
+//     .removeEventListener("click", toggleModal);
+//   modalElm
+//     .querySelector(".site-content__overlay")
+//     .removeEventListener("click", toggleModal);
+// }
+
+// function toggleModal() {
+//   var currentState = modal.style.display;
+
+//   // If modal is visible, hide it. Else, display it.
+//   if (currentState === "none") {
+//     modal.style.display = "block";
+//     attachModalListeners(modal);
+//   } else {
+//     modal.style.display = "none";
+//     detachModalListeners(modal);
+//   }
+// }
+
+// btn.addEventListener("click", toggleModal);
