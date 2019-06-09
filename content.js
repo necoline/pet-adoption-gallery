@@ -34,10 +34,13 @@ snippets.onLoad(function() {
     });
 
   function createImages(imgs) {
+    // Creates and appends images
     for (let i of imgs) {
       const image = document.createElement("img");
       image.setAttribute("data-lazy", i.image);
-      image.setAttribute("id", i.id);
+      image.addEventListener("click", openModal);
+      image.setAttribute("alt", "dog image");
+      image.setAttribute("id", "site-content__image-thubmnail");
       image.classList.add("lazy-loading");
       document.getElementById("site-content__container").appendChild(image);
     }
@@ -46,7 +49,7 @@ snippets.onLoad(function() {
     lazyTargets.forEach(lazyLoad);
   }
 
-  // The lazy load observer
+  // Sets and disconnects lazy load observer
   function lazyLoad(target) {
     const obs = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -64,3 +67,17 @@ snippets.onLoad(function() {
     obs.observe(target);
   }
 });
+
+function openModal(event) {
+  const imgSrc = event.target.getAttribute("data-lazy");
+  // Displays modal
+  document.getElementById("site-content__modal").style.display = "block";
+  // Sets the image address
+  document
+    .getElementById("site-content__modal-img")
+    .setAttribute("src", imgSrc);
+}
+
+function closeModal() {
+  document.getElementById("site-content__modal").style.display = "none";
+}
