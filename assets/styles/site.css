@@ -18,7 +18,7 @@ a {
   color: var(--color-link);
 }
 
-/* Snippets */
+/* Header */
 .site-header {
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -33,6 +33,7 @@ a {
   max-width: 460px;
 }
 
+/* Loader */
 .site-content__ripple {
   display: inline-block;
   position: relative;
@@ -68,6 +69,7 @@ a {
   }
 }
 
+/* Image Grid */
 #site-content__container {
   display: grid;
   grid-gap: 40px;
@@ -99,6 +101,7 @@ a {
   animation-duration: 3s;
 }
 
+/* Modal */
 .site-content__modal {
   display: none;
   position: fixed;
@@ -145,8 +148,10 @@ a {
   opacity: 0.9;
 }
 
+/* Footer */
 .site-footer {
   color: var(--color);
   font-family: var(--font-serif);
   text-align: center;
+  margin-top: 60px;
 }
