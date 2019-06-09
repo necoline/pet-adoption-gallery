@@ -1,4 +1,4 @@
-function includeHTML() {
+var createSnippets = (function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
   z = document.getElementsByTagName("*");
@@ -24,7 +24,7 @@ function includeHTML() {
       return;
     }
   }
-}
+}())
 
 // function loadJSON(callback) {   
 
@@ -39,75 +39,64 @@ function includeHTML() {
 //     xobj.send(null);  
 //  }
 
-// window.onload = () => {
-//     loadJSON(function(response) {
-//         const imgJson = JSON.parse(response).dogs;
-//         createImages(imgJson);
-//         // document.getElementById('lds-roller').remove();
-//       })
+//  const internalFetch = (url, options = {method:'get'}) => new Promise((resolve, reject) => {
+//     let request = new XMLHttpRequest();  
+//     request.onload = resolve
+//     request.onerror = reject;
+//     request.overrideMimeType("application/json");
+//     request.open(options.method, url, true); 
+//     request.send();
+// });
 
+
+// window.onload = () => {
+//     setTimeout(function() {
+//         internalFetch('./assets/data/dogs.json')
+//       .then(function(response) {
+//           const dogData = JSON.parse(response.target.response)
+//         return dogData.dogs;
+//       })
+//     // fetch('https://picsum.photos/v2/list?limit=30')
+//     //   .then(function(response) {
+//     //     return response.json();
+//     //   })
+//       .then(function(jsonData) {
+//           console.log('jsonData', jsonData)
+//         createImages(jsonData);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//     }, 3000)
 //   };
   
-
 //   function createImages(imgs) {
-//     const container = document.createElement('div')
-    
 //     for (let i of imgs) {
 //       const image = document.createElement('img');
 //       image.setAttribute('data-lazy', i.image);
+//       image.setAttribute("id", i.id);
 //       image.classList.add('lazy-loading');
-
-//       container.appendChild(image);
+//       document.getElementById('imagesContainer').appendChild(image);
 //     }
 //     // Sets an observer for each image
-//     const lazyTargets = document.querySelectorAll('.lazy-loading');
-//     return lazyTargets.forEach(lazyLoad);
+//     lazyTargets = document.querySelectorAll('.lazy-loading');
+//     lazyTargets.forEach(lazyLoad);
 //   }
-
-window.onload = () => {
-    // Get 100 random images
-    fetch('https://picsum.photos/v2/list?limit=30')
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        // Call the createImages function to generate the HTML code
-        createImages(myJson);
-        // Remove the loading spinner
-        document.getElementById('lds-roller').remove();
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
   
-  function createImages(imgs) {
-    for (let i of imgs) {
-      // Create an image HTML tag
-      const image = document.createElement('img');
-      image.setAttribute('data-lazy', i.download_url);
-      image.classList.add('lazy-loading');
-      document.getElementById('imagesContainer').appendChild(image);
-    }
-    // Sets an observer for each image
-    lazyTargets = document.querySelectorAll('.lazy-loading');
-    lazyTargets.forEach(lazyLoad);
-  }
+//   // The lazy loading observer
+//   function lazyLoad(target) {
+//     const obs = new IntersectionObserver((entries, observer) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           const img = entry.target;
+//           const src = img.getAttribute('data-lazy');
   
-  // The lazy loading observer
-  function lazyLoad(target) {
-    const obs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-lazy');
+//           img.setAttribute('src', src);
+//           img.classList.add('fadeIn');
   
-          img.setAttribute('src', src);
-          img.classList.add('fadeIn');
-  
-          observer.disconnect();
-        }
-      });
-    });
-    obs.observe(target);
-  }
+//           observer.disconnect();
+//         }
+//       });
+//     });
+//     obs.observe(target);
+//   }
