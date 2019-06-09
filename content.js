@@ -13,11 +13,13 @@ snippets.onLoad(function() {
     .then(function(response) {
       // Parses json data
       const dogData = JSON.parse(response.target.response);
+      debugger;
       return dogData.dogs;
     })
     .then(function(jsonData) {
       // Calls function to create HTML code
       createImages(jsonData);
+      document.getElementById("site-content__loader").remove();
     })
     .catch(err => {
       console.error(err);
