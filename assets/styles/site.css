@@ -33,16 +33,16 @@ a {
   max-width: 460px;
 }
 
-#imagesContainer {
+#site-content__container {
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-items: center;
   align-items: center;
-  /* margin: 0 80px; */
+  margin: 20px 80px;
 }
 
-#imagesContainer img {
+#site-content__container img {
   max-width: 300px;
   min-height: 200px;
   max-height: 300px;
@@ -59,7 +59,7 @@ a {
   }
 }
 
-.fadeIn {
+.site-content__fadeIn {
   animation-name: fadeIn;
   animation-duration: 3s;
 }
