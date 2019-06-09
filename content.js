@@ -38,8 +38,9 @@ snippets.onLoad(function() {
     for (let i of imgs) {
       const image = document.createElement("img");
       image.setAttribute("data-lazy", i.image);
-      image.setAttribute("onclick", "openModal();currentImage(image)");
+      image.addEventListener("click", openModal);
       image.setAttribute("alt", "dog image");
+      image.setAttribute("id", "site-content__image-thubmnail");
       image.classList.add("lazy-loading");
       document.getElementById("site-content__container").appendChild(image);
     }
@@ -67,8 +68,14 @@ snippets.onLoad(function() {
   }
 });
 
-function openModal() {
+function openModal(event) {
+  const imgSrc = event.target.getAttribute("data-lazy");
+  // Displays modal
   document.getElementById("site-content__modal").style.display = "block";
+  // Sets the image address
+  document
+    .getElementById("site-content__modal-img")
+    .setAttribute("src", imgSrc);
 }
 
 function closeModal() {
