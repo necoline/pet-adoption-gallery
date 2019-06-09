@@ -1,15 +1,15 @@
 snippets.onLoad(function() {
-  function loadJSON(callback) {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open("GET", "./assets/data/dogs.json", true);
-    xobj.onreadystatechange = function() {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        callback(xobj.responseText);
-      }
-    };
-    xobj.send(null);
-  }
+  // function loadJSON(callback) {
+  //   var xobj = new XMLHttpRequest();
+  //   xobj.overrideMimeType("application/json");
+  //   xobj.open("GET", "./assets/data/dogs.json", true);
+  //   xobj.onreadystatechange = function() {
+  //     if (xobj.readyState == 4 && xobj.status == "200") {
+  //       callback(xobj.responseText);
+  //     }
+  //   };
+  //   xobj.send(null);
+  // }
 
   const internalFetch = (url, options = { method: "get" }) =>
     new Promise((resolve, reject) => {
