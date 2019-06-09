@@ -1,12 +1,18 @@
 <div>
+  <!-- Loading spinner -->
+  <!-- <span id="site-content__loader">loading ...</span> -->
+  <div id="site-content__loader" class="site-content__ripple">
+    <div></div>
+    <div></div>
+  </div>
   <!-- Images Container -->
   <div id="site-content__container"></div>
+
+  <!-- Image Modal -->
   <div class="site-content__modal" id="site-content__modal">
     <div class="site-content__overlay"></div>
     <div class="site-content__modal-content">
-      <!-- Dynamic Section -->
-      <img class="site-content__modal-img" id="site-content__modal-img" />
-      <!-- End of Dynamic Section -->
+      <img id="site-content__modal-img" />
       <button
         title="Close"
         onclick="closeModal()"
