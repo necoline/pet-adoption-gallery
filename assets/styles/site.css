@@ -84,6 +84,7 @@ a {
   min-height: 200px;
   max-height: 300px;
   box-shadow: 2px 4px 6px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
