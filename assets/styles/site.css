@@ -33,6 +33,35 @@ a {
   max-width: 460px;
 }
 
+#imagesContainer {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+  justify-items: center;
+  /* margin: 0 80px; */
+}
+
+#imagesContainer img {
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 2px 4px 6px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
 .site-footer {
   color: var(--color);
   font-family: var(--font-serif);
