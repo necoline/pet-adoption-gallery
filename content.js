@@ -34,10 +34,11 @@ snippets.onLoad(function() {
     });
 
   function createImages(imgs) {
+    // Creates and appends images
     for (let i of imgs) {
       const image = document.createElement("img");
       image.setAttribute("data-lazy", i.image);
-      image.setAttribute("id", i.id);
+      image.setAttribute("onclick", openModal());
       image.classList.add("lazy-loading");
       document.getElementById("site-content__container").appendChild(image);
     }
@@ -64,3 +65,7 @@ snippets.onLoad(function() {
     obs.observe(target);
   }
 });
+
+function openModal() {
+  console.log("modal");
+}
