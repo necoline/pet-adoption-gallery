@@ -39,7 +39,7 @@ snippets.onLoad(function() {
       image.setAttribute("data-lazy", i.image);
       image.setAttribute("id", i.id);
       image.classList.add("lazy-loading");
-      document.getElementById("imagesContainer").appendChild(image);
+      document.getElementById("site-content__container").appendChild(image);
     }
     // Sets an observer for each image
     lazyTargets = document.querySelectorAll(".lazy-loading");
@@ -55,7 +55,7 @@ snippets.onLoad(function() {
           const src = img.getAttribute("data-lazy");
 
           img.setAttribute("src", src);
-          img.classList.add("fadeIn");
+          img.classList.add("site-content__fadeIn");
 
           observer.disconnect();
         }
