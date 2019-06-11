@@ -1,4 +1,5 @@
 let snippets = (function includeHTML() {
+  // Creates an array of snippets
   let snippetElements = [];
   let elements = document.getElementsByTagName("*");
 
@@ -10,6 +11,7 @@ let snippets = (function includeHTML() {
     }
   }
 
+  // Creates requests for snippets using the array from above.
   const loadSnippets = Promise.all(
     snippetElements.map(({ element, file }) => {
       return new Promise((resolve, reject) => {
@@ -34,6 +36,7 @@ let snippets = (function includeHTML() {
   );
 
   return {
+    // Calls subsequent javascript after the the snippets have loaded.
     onLoad: function(fn) {
       return loadSnippets.then(fn);
     }
