@@ -1,3 +1,4 @@
+// Creates html files for all snippets
 let snippets = (function includeHTML() {
   let snippetElements = [];
   let elements = document.getElementsByTagName("*");
@@ -10,6 +11,7 @@ let snippets = (function includeHTML() {
     }
   }
 
+  // Loads all snippet html before other business logic can run
   const loadSnippets = Promise.all(
     snippetElements.map(({ element, file }) => {
       return new Promise((resolve, reject) => {
@@ -34,6 +36,7 @@ let snippets = (function includeHTML() {
   );
 
   return {
+    // All subsequent javascript will run after the the snippets have loaded.
     onLoad: function(fn) {
       return loadSnippets.then(fn);
     }
