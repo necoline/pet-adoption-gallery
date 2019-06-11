@@ -10,7 +10,7 @@ snippets.onLoad(function() {
       request.send();
     });
 
-  // Retrieves data and begins creation of HTML cods
+  // Retrieves data and begins creation of HTML
   fetchData("./assets/data/dogs.json")
     .then(function(response) {
       // Parses json data
